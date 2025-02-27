@@ -22,6 +22,7 @@ public class AuthService {
         memberRepository.save(member);
     }
 
+    @Transactional
     public AuthLoginResponseDto login(AuthLoginRequestDto dto) {
         Member member = memberRepository.findByEmail(dto.getEmail()).orElseThrow(
                 () -> new IllegalStateException(" 해당 ID 없음")
